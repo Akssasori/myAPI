@@ -132,21 +132,21 @@ exports.deleteAll = (req, res) => { //FOI
 
 };
 
-exports.findAllCliente = (req, res) => {
-    Acao.find({ cliente : true })
-     .then(data => {
-         res.send(data);
-     })
-     .catch(err => {
-         res.status(500).send({
-             message:
-              err.message || "Algum erro ocorreu ao buscar clientes"
+// exports.findAllCliente = (req, res) => {
+//     Acao.find({ cliente : true })
+//      .then(data => {
+//          res.send(data);
+//      })
+//      .catch(err => {
+//          res.status(500).send({
+//              message:
+//               err.message || "Algum erro ocorreu ao buscar clientes"
 
-         });
-     });
+//          });
+//      });
 
 
-};
+// };
 
 exports.findAll = (req, res) => { //foi
     const produto = req.query.produto;

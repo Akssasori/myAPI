@@ -3,19 +3,19 @@ module.exports = app => {
 
     var router = require("express").Router();
 
-    router.post("/", acoes.create); //create
+    router.post("/", acoes.create); //create  OK
 
-    router.get("/", acoes.findAll);//buscar por programa
+    router.get("/", acoes.findAll);//buscar por programa OK
 
-    router.get("/cliente", acoes.findAllCliente);
+    // router.get("/cliente", acoes.findAllCliente); E O PUBLISH : TRUE
 
-    router.get("/:id", acoes.findOne);
+    router.get("/:id", acoes.findOne);//OK
 
-    router.put("/:id", acoes.update);
+    router.put("/:id", acoes.update);//OK
 
-    router.delete("/:id", acoes.delete);
+    router.delete("/:id", acoes.delete);//OK
 
-    router.delete("/", acoes.deleteAll);
+    router.delete("/", acoes.deleteAll);//OK
 
     router.get("/produto", acoes.findAll);
 
