@@ -36,7 +36,7 @@ exports.create = (req,res) =>{ //FOI
 
 };
 
-exports.findAll = (req, res) => { 
+exports.findAll = (req, res) => { //foi
     const programa = req.query.programa;
     var condition = programa ? { programa: { $regex: new RegExp(programa), $options: "i"} } : {};
 
@@ -69,7 +69,7 @@ exports.findOne = (req,res) => { //foi
 
 };
 
-exports.update = (req, res) => { 
+exports.update = (req, res) => { //foi
     if (!req.body){
         return res.status(400).send({
             message: "o valor para ser atualizado não pode ser vazio!"
@@ -133,7 +133,7 @@ exports.deleteAll = (req, res) => { //FOI
 };
 
 exports.findAllCliente = (req, res) => {
-    Acao.find({ cliente : cliente })
+    Acao.find({ cliente : true })
      .then(data => {
          res.send(data);
      })
@@ -146,4 +146,36 @@ exports.findAllCliente = (req, res) => {
      });
 
 
+};
+
+exports.findAll = (req, res) => { //foi
+    const produto = req.query.produto;
+    var condition = produto ? { produto: { $regex: new RegExp(produto), $options: "i"} } : {};
+
+    Acao.find(condition)
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                 err.message || "Algum erro ocorreu enquanto buscava acao"
+            });
+        });
+};
+
+exports.findAll = (req, res) => { //foi
+    const tipoAcao = req.query.tipoAcao;
+    var condition = tipoAcao ? { tipoAcao: { $regex: new RegExp(tipoAcao), $options: "i"} } : {};
+
+    Acao.find(condition)
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                 err.message || "Algum erro ocorreu enquanto buscava acao"
+            });
+        });
 };

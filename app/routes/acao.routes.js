@@ -3,9 +3,9 @@ module.exports = app => {
 
     var router = require("express").Router();
 
-    router.post("/", acoes.create);
+    router.post("/", acoes.create); //create
 
-    router.get("/", acoes.findAll);
+    router.get("/", acoes.findAll);//buscar por programa
 
     router.get("/cliente", acoes.findAllCliente);
 
@@ -16,6 +16,10 @@ module.exports = app => {
     router.delete("/:id", acoes.delete);
 
     router.delete("/", acoes.deleteAll);
+
+    router.get("/produto", acoes.findAll);
+
+    router.get("/tipoacao", acoes.findAll);
 
     app.use('/api/acoes', router);
 }
